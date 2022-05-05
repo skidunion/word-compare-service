@@ -7,8 +7,14 @@
     --secondary-color: #BDC3C7;
     --input-primary-color: #34495E;
     --input-secondary-color: #7F8C8D;
+    --form-bg-color: #253444;
     --form-shadow-color: rgba(38, 54, 70, 0.8);
     --textbox-shadow-color: #263646;
+    --result-bg-color: #16A085;
+    --result-shadow-color: #1ABC9C;
+    --submit-bg-color: #3A5269;
+    --submit-shadow-color: rgba(41, 128, 185, 0.2);
+    --submit-hover-color: #2980B9;
 }
 /* Main stuff */
 body {
@@ -22,8 +28,11 @@ h1 {
     color: var(--primary-color);
     user-select: none;
 }
+main {
+    gap: 20px;
+}
 .words-form {
-    background-color: #253444;
+    background-color: var(--form-bg-color);
     box-shadow: 0 10px 15px 5px var(--form-shadow-color);
 
     gap: 15px;
@@ -53,6 +62,38 @@ h1 {
 }
 .words-form input:focus {
     box-shadow: 0 0 5px 2px var(--textbox-shadow-color) inset;
+}
+.words-form .submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    margin-top: 5px;
+
+    color: var(--primary-color);
+    background-color: var(--submit-bg-color);
+    box-shadow: 0 0 0 0 var(--submit-shadow-color);
+
+    cursor: pointer;
+    transition: .25s background-color, .5s box-shadow;
+}
+.words-form .submit:hover {
+    background-color: var(--submit-hover-color);
+    box-shadow: 0 0 10px 2px var(--submit-shadow-color);
+}
+.result {
+    color: var(--primary-color);
+    background-color: var(--result-bg-color);
+    box-shadow: 0 5px 15px 2px rgba(26, 188, 156, 0.35);
+    padding: 10px;
+    border-radius: 10px;
+}
+.result .title {
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 /* Traits */
 .flex {

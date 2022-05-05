@@ -1,1 +1,1 @@
-pub mod words_v1_api;
+pub mod api;

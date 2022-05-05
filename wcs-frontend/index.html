@@ -8,19 +8,54 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     </head>
 
     <body class="flex flex-column align-center justify-center">
-        <h1>Word compare service</h1>
-        <div class="words-form flex flex-column">
-            <div class="input-group flex flex-column">
-                <label for="word-1">Word #1</label>
-                <input class="word-form" id="word-1">
+        <h1>Сравнение слов</h1>
+        <main class="flex flex-column">
+            <div class="words-form flex flex-column">
+                <div class="input-group flex flex-column">
+                    <label for="word-1">Слово №1</label>
+                    <input class="word-form" id="word-1">
+                </div>
+                <div class="input-group flex flex-column">
+                    <label for="word-2">Слово №2</label>
+                    <input class="word-form" id="word-2">
+                </div>
+                <div class="submit">Сравнить</div>
             </div>
-            <div class="input-group flex flex-column">
-                <label for="word-2">Word #2</label>
-                <input class="word-form" id="word-2">
+            <div class="result flex flex-column align-center justify-center" style="display: none">
+                <span class="w-700 title">Результаты</span>
+                <span>Текстовая схожесть: <span id="string-similarity">N/A</span></span>
+                <span>Фонетическая схожесть: <span id="phonetic-similarity">N/A</span></span>
             </div>
-        </div>
+        </main>
     </body>
+
+    <script>
+        $(document).ready(() => {
+            const doubleToPercentage = (value) => {
+                return (value * 100).toFixed() + "%";
+            };
+
+            const compareAndShowResult = () => {
+                $.get({
+                    url: "/api/v1/similarity",
+                    data: {
+                        first: $("#word-1").val(),
+                        second: $("#word-2").val()
+                    },
+                    success: (data) => {
+                        $(".result").css('display', 'flex');
+
+                        $("#string-similarity").text(doubleToPercentage(data.string_similarity));
+                        $("#phonetic-similarity").text(doubleToPercentage(data.phonetic_similarity));
+                    }
+                });
+            };
+
+            $('.submit').click(compareAndShowResult);
+        });
+    </script>
 </html>
