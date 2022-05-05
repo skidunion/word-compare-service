@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wcs-backend/wcs-backend.iml" filepath="$PROJECT_DIR$/wcs-backend/wcs-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wcs-frontend.iml" filepath="$PROJECT_DIR$/wcs-frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/word-compare-svc.iml" filepath="$PROJECT_DIR$/word-compare-svc.iml" />
+    </modules>
+  </component>
+</project>

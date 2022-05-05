@@ -1,0 +1,75 @@
+/* Constants */
+* {
+    font-family: 'Roboto', sans-serif;
+
+    --bg-color: #2C3E50;
+    --primary-color: #ECF0F1;
+    --secondary-color: #BDC3C7;
+    --input-primary-color: #34495E;
+    --input-secondary-color: #7F8C8D;
+    --form-shadow-color: rgba(38, 54, 70, 0.8);
+    --textbox-shadow-color: #263646;
+}
+/* Main stuff */
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+}
+h1 {
+    font-size: 40px;
+    color: var(--primary-color);
+    user-select: none;
+}
+.words-form {
+    background-color: #253444;
+    box-shadow: 0 10px 15px 5px var(--form-shadow-color);
+
+    gap: 15px;
+    padding: 50px;
+    border-radius: 15px;
+}
+.words-form .input-group {
+    gap: 2px;
+}
+.words-form label {
+    color: var(--secondary-color);
+    user-select: none;
+}
+.words-form input {
+    width: 250px;
+    height: 25px;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    background-color: var(--input-primary-color);
+    color: var(--primary-color);
+    transition: box-shadow .2s ease-out;
+
+    border: none;
+    outline: none;
+}
+.words-form input:focus {
+    box-shadow: 0 0 5px 2px var(--textbox-shadow-color) inset;
+}
+/* Traits */
+.flex {
+    display: flex;
+}
+.justify-center {
+    justify-content: center;
+}
+.align-center {
+    align-items: center;
+}
+.flex-column {
+    flex-direction: column;
+}
+.w-400 {
+    font-weight: 400;
+}
+.w-700 {
+    font-weight: 700;
+}
