@@ -159,13 +159,14 @@ pub mod transcode {
         input.replace('Ъ', "").replace('Ь', "")
     }
 
+    const REPLACED_PAIR: char = '\0';
+
     fn replace_two_char_pairs(input: &str) -> String {
         let mut chars: Vec<char> = input.chars().collect();
 
         for i in 1..chars.len() {
             if chars[i] == chars[i - 1] {
-                chars[i] = '\0'; // constant, to be used later
-                // for replacement
+                chars[i] = REPLACED_PAIR;
             }
         }
 
@@ -176,7 +177,7 @@ pub mod transcode {
         let mut chars: Vec<char> = input.chars().collect();
 
         for i in 0..chars.len() - 1 {
-            if chars[i + 1] == '\0' {
+            if chars[i + 1] == REPLACED_PAIR {
                 continue
             }
 
