@@ -1,2 +1,8 @@
-# Exclude IntelliJ modules
-**.iml
+# User-specific files
+.idea/.gitignore
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/shelf
+
+# Build output
+**/target
