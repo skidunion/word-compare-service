@@ -202,6 +202,6 @@ pub mod transcode {
         processed = replace_in_string(&processed, &STAGE_6_REPLACE_TABLE);
 
         // remove leftover nul bytes
-        processed.replace('\0', "")
+        processed.replace(REPLACED_PAIR, "")
     }
 }
