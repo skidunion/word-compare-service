@@ -29,6 +29,7 @@ h1 {
     user-select: none;
 }
 main {
+    width: 400px;
     gap: 20px;
 }
 .words-form {
@@ -47,7 +48,6 @@ main {
     user-select: none;
 }
 .words-form input {
-    width: 250px;
     height: 25px;
     font-size: 18px;
     padding: 5px 10px;
@@ -113,4 +113,9 @@ main {
 }
 .w-700 {
     font-weight: 700;
+}
+@media (max-width: 400px) {
+    main {
+        width: 100%;
+    }
 }
