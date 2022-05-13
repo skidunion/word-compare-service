@@ -47,10 +47,10 @@
                         second: $("#word-2").val()
                     },
                     success: (data) => {
-                        $(".result").css('display', 'flex');
-
                         $("#string-similarity").text(doubleToPercentage(data.string_similarity));
                         $("#phonetic-similarity").text(doubleToPercentage(data.phonetic_similarity));
+
+                        $(".result").css('display', 'flex');
                     }
                 });
             };
