@@ -59,10 +59,10 @@ pub mod similarity {
     }
 
     pub fn similarity_with_dist(first: &str, second: &str, distance: i32) -> f32 {
-        let max_length = first
-            .chars().count()
-            .max(second.chars().count()) as f32;
+        let first_count = first.chars().count();
+        let second_count = second.chars().count();
 
+        let max_length = first_count.max(second_count) as f32;
         let similarity = (max_length - distance as f32) / max_length;
 
         // only leave 2 decimal places
@@ -70,7 +70,7 @@ pub mod similarity {
     }
 
     pub fn similarity(first: &str, second: &str, distance_function: fn(&str, &str) -> i32) -> f32 {
-        let distance = distance_function(first, second);
+        let distance = distance_function(&first.to_uppercase(), &second.to_uppercase());
         similarity_with_dist(first, second, distance)
     }
 }

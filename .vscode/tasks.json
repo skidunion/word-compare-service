@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run in workspace directory",
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "run",
+                "--manifest-path",
+                "wcs-backend/Cargo.toml"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
