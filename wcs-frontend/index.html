@@ -30,6 +30,7 @@
                 <span class="w-700 title">Результаты</span>
                 <span>Текстовая схожесть: <span id="string-similarity">N/A</span></span>
                 <span>Фонетическая схожесть: <span id="phonetic-similarity">N/A</span></span>
+                <span>Общая схожесть: <span id="total-similarity">N/A</span></span>
             </div>
         </main>
     </body>
@@ -50,6 +51,11 @@
                     success: (data) => {
                         $("#string-similarity").text(doubleToPercentage(data.string_similarity));
                         $("#phonetic-similarity").text(doubleToPercentage(data.phonetic_similarity));
+
+                        let averageScore = (data.string_similarity * 100 + data.phonetic_similarity * 100) / 2;
+                            averageScore = Math.round(averageScore).toFixed();
+
+                        $("#total-similarity").text(`${averageScore}%`);
 
                         $(".result").css('display', 'flex');
                     }
